@@ -52,8 +52,6 @@
             border-radius: 10px;
             transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s ease-in-out;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            opacity: 1;
-            visibility: visible;
         }
         .illustrations-container img.hidden {
             opacity: 0;
@@ -153,6 +151,20 @@
         <h2>Download My CV</h2>
         <p><a href="Vasilis_Vavalos_Resume.pdf" download>Click here to download my CV</a></p>
     </section>
+
+    <script>
+        document.getElementById('loadMore').addEventListener('click', function() {
+            let hiddenImages = document.querySelectorAll('.illustrations-container .hidden');
+            for (let i = 0; i < 4 && i < hiddenImages.length; i++) {
+                hiddenImages[i].classList.remove('hidden');
+                hiddenImages[i].style.visibility = 'visible';
+                hiddenImages[i].style.opacity = '1';
+                hiddenImages[i].style.position = 'relative';
+            }
+            if (document.querySelectorAll('.illustrations-container .hidden').length === 0) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
-
