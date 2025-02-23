@@ -7,27 +7,29 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             color: #333;
-            text-align: center;
         }
         header {
             background-color: #0073e6;
             color: white;
-            padding: 20px;
+            padding: 40px;
+            text-align: center;
+            font-size: 24px;
         }
         section {
+            max-width: 900px;
+            margin: 40px auto;
             padding: 20px;
-            margin: 20px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
         }
         ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
         }
         ul li {
@@ -37,16 +39,32 @@
             padding: 10px;
             border-radius: 5px;
             display: inline-block;
+            transition: background 0.3s;
+        }
+        ul li:hover {
+            background: #005bb5;
         }
         a {
-            color: #0073e6;
+            color: white;
             text-decoration: none;
+            font-weight: bold;
+        }
+        .portfolio-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
         .portfolio img {
-            width: 200px;
+            width: 250px;
             height: auto;
-            margin: 10px;
-            border-radius: 5px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .portfolio img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -72,20 +90,6 @@
         </ul>
     </section>
     
-    <section id="experience">
-        <h2>Experience</h2>
-        <h3>Founder & Business Owner, TshirtJunkies.co</h3>
-        <p>Developed a successful e-commerce platform with strong digital marketing strategies.</p>
-        <h3>Managing Director, ASG Group Of Companies</h3>
-        <p>Increased sales by 400% and expanded the Limassol Marathon from 70 to 15,000+ participants.</p>
-    </section>
-    
-    <section id="education">
-        <h2>Education</h2>
-        <p>M.Sc. Digital Communications And Media - Metropolitan College</p>
-        <p>B.A. Graphic And Digital Design - Metropolitan College</p>
-    </section>
-    
     <section id="portfolio">
         <h2>Portfolio</h2>
         
@@ -97,29 +101,29 @@
         </ul>
         
         <h3>Graphic Design</h3>
-        <div class="portfolio">
+        <div class="portfolio-container">
             <img src="graphic1.jpg" alt="Graphic Design 1">
             <img src="graphic2.jpg" alt="Graphic Design 2">
             <img src="graphic3.jpg" alt="Graphic Design 3">
         </div>
         
         <h3>Illustrations</h3>
-        <div class="portfolio">
-            <img src="v5.jpg" alt="Illustration 1">
+        <div class="portfolio-container">
+            <img src="illustration1.jpg" alt="Illustration 1">
             <img src="illustration2.jpg" alt="Illustration 2">
             <img src="illustration3.jpg" alt="Illustration 3">
         </div>
     </section>
-
-    <section id="download-cv">
-        <h2>Download My CV</h2>
-        <p><a href="Vasilis_Vavalos_Resume.pdf" download>Click here to download my CV</a></p>
-    </section>    
     
     <section id="contact">
         <h2>Contact</h2>
         <p>Email: <a href="mailto:alwinred@gmail.com">alwinred@gmail.com</a></p>
         <p>Location: Limassol, Cyprus</p>
+    </section>
+
+    <section id="download-cv">
+        <h2>Download My CV</h2>
+        <p><a href="Vasilis_Vavalos_Resume.pdf" download>Click here to download my CV</a></p>
     </section>
 </body>
 </html>
