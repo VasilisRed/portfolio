@@ -38,38 +38,29 @@
             font-size: 26px;
             font-weight: bold;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            display: inline-block;
-            background: #0073e6;
-            color: white;
-            padding: 10px 15px;
-            margin: 5px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        ul li:hover {
-            background: #005bb5;
-        }
-        .portfolio-container {
+        .illustrations-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             justify-items: center;
             padding: 20px 0;
         }
-        .portfolio img {
+        .illustrations-container img {
             width: 100%;
             max-width: 220px;
             height: auto;
             border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s ease-in-out;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            visibility: visible;
         }
-        .portfolio img:hover {
+        .illustrations-container img.hidden {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+        }
+        .illustrations-container img:hover {
             transform: scale(1.08);
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
         }
@@ -88,7 +79,6 @@
         .load-more:hover {
             background: #005bb5;
         }
-        .hidden { display: none; }
     </style>
 </head>
 <body>
@@ -130,28 +120,28 @@
             <img src="graphic3.jpg" alt="Graphic Design 3">
         </div>
         
-            <h2>Illustrations</h2>
-            <p>These illustrations were created using a graphic tablet and Clip Studio Paint, with final color corrections made in Photoshop.</p>
-            <div id="illustration-gallery" class="illustrations-container">
-                <img src="a1.jpg" alt="Illustration 1">
-                <img src="a2.jpg" alt="Illustration 2">
-                <img src="a3.jpg" alt="Illustration 3">
-                <img src="a8.jpg" alt="Illustration 4">
-                <img src="d1.jpg" alt="Illustration 5" class="hidden">
-                <img src="q1.jpg" alt="Illustration 6" class="hidden">
-                <img src="q4.jpg" alt="Illustration 7" class="hidden">
-                <img src="q5.jpg" alt="Illustration 8" class="hidden">
-                <img src="q8.jpg" alt="Illustration 9" class="hidden">
-                <img src="rtp4.jpg" alt="Illustration 10" class="hidden">
-                <img src="rpt6.jpg" alt="Illustration 11" class="hidden">
-                <img src="rtp8.jpg" alt="Illustration 12" class="hidden">
-                <img src="v2.jpg" alt="Illustration 13" class="hidden">
-                <img src="v3.jpg" alt="Illustration 14" class="hidden">
-                <img src="v4.jpg" alt="Illustration 15" class="hidden">
-                <img src="v5.jpg" alt="Illustration 16" class="hidden">
-            </div>
-            <button id="loadMore" class="load-more">Load More</button>
-        </section>
+        <h3>Illustrations</h3>
+        <p>These illustrations were created using a graphic tablet and Clip Studio Paint, with final color corrections made in Photoshop.</p>
+        <div id="illustration-gallery" class="illustrations-container">
+            <img src="a1.jpg" alt="Illustration 1">
+            <img src="a2.jpg" alt="Illustration 2">
+            <img src="a3.jpg" alt="Illustration 3">
+            <img src="a8.jpg" alt="Illustration 4">
+            <img src="d1.jpg" alt="Illustration 5" class="hidden">
+            <img src="q1.jpg" alt="Illustration 6" class="hidden">
+            <img src="q4.jpg" alt="Illustration 7" class="hidden">
+            <img src="q5.jpg" alt="Illustration 8" class="hidden">
+            <img src="q8.jpg" alt="Illustration 9" class="hidden">
+            <img src="rtp4.jpg" alt="Illustration 10" class="hidden">
+            <img src="rpt6.jpg" alt="Illustration 11" class="hidden">
+            <img src="rtp8.jpg" alt="Illustration 12" class="hidden">
+            <img src="v2.jpg" alt="Illustration 13" class="hidden">
+            <img src="v3.jpg" alt="Illustration 14" class="hidden">
+            <img src="v4.jpg" alt="Illustration 15" class="hidden">
+            <img src="v5.jpg" alt="Illustration 16" class="hidden">
+        </div>
+        <button id="loadMore" class="load-more">Load More</button>
+    </section>
 
     <section id="contact">
         <h2>Contact</h2>
@@ -163,17 +153,6 @@
         <h2>Download My CV</h2>
         <p><a href="Vasilis_Vavalos_Resume.pdf" download>Click here to download my CV</a></p>
     </section>
-
-    <script>
-        document.getElementById('loadMore').addEventListener('click', function() {
-            let hiddenImages = document.querySelectorAll('.illustrations-container .hidden');
-            for (let i = 0; i < 4 && i < hiddenImages.length; i++) {
-                hiddenImages[i].classList.remove('hidden');
-            }
-            if (document.querySelectorAll('.illustrations-container .hidden').length === 0) {
-                this.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>
+
