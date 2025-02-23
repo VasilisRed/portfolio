@@ -1,170 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasilis Vavalos - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.8;
-        }
-        header {
-            background-color: #0073e6;
-            color: white;
-            padding: 50px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #0073e6;
-            font-size: 26px;
-            font-weight: bold;
-        }
-        .illustrations-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            justify-items: center;
-            padding: 20px 0;
-        }
-        .illustrations-container img {
-            width: 100%;
-            max-width: 220px;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s ease-in-out;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .illustrations-container img.hidden {
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-        }
-        .illustrations-container img:hover {
-            transform: scale(1.08);
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .load-more {
-            display: block;
-            margin: 20px auto;
-            padding: 12px 25px;
-            background: #0073e6;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background 0.3s;
-        }
-        .load-more:hover {
-            background: #005bb5;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vasilis Vavalos - Portfolio</title>
+  <meta name="description" content="Portfolio of Vasilis Vavalos - Entrepreneur, Business Leader, and Digital Strategist showcasing skills in business development, digital marketing, and design.">
+  <meta name="keywords" content="Portfolio, Vasilis Vavalos, Business, Digital Marketing, Web Design, Graphic Design, Illustrations">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.8;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #005bb5;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #fff;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      font-weight: 600;
+      padding: 15px 0;
+      display: block;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0073e6, #005bb5);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+    }
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2em;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    section {
+      background: #fff;
+      margin-bottom: 40px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0073e6;
+      font-size: 2em;
+      font-weight: 700;
+    }
+    section p {
+      text-align: center;
+    }
+
+    /* Skills List */
+    #skills ul li {
+      font-size: 1.1em;
+      padding: 8px 0;
+    }
+
+    /* Portfolio Section */
+    #portfolio ul {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 0;
+    }
+    #portfolio ul li {
+      font-size: 1.1em;
+    }
+    .portfolio-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .portfolio-container img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .portfolio-container img:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Illustrations Gallery */
+    .illustrations-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      padding: 20px 0;
+    }
+    .illustrations-container img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .illustrations-container img.hidden {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+    }
+    .illustrations-container img:hover {
+      transform: scale(1.08);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .load-more {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 25px;
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background 0.3s;
+    }
+    .load-more:hover {
+      background: #005bb5;
+    }
+
+    /* Contact & CV */
+    #contact a, #download-cv a {
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid #ddd;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      nav ul li {
+        margin: 0 10px;
+      }
+      .portfolio-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Vasilis Vavalos</h1>
-        <p>Entrepreneur | Business Leader | Digital Strategist</p>
-    </header>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#download-cv">CV</a></li>
+    </ul>
+  </nav>
 
+  <!-- Header -->
+  <header>
+    <h1>Vasilis Vavalos</h1>
+    <p>Entrepreneur | Business Leader | Digital Strategist</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
     <section id="about">
-        <h2>About Me</h2>
-        <p>Self-motivated professional successful in business expansion and innovation. I spearheaded TshirtJunkies.co, driving substantial online sales growth through innovative SEO and marketing strategies. Expertise in customer experience, strategic planning, and digital marketing.</p>
+      <h2>About Me</h2>
+      <p>Self-motivated professional successful in business expansion and innovation. I spearheaded TshirtJunkies.co, driving substantial online sales growth through innovative SEO and marketing strategies. Expertise in customer experience, strategic planning, and digital marketing.</p>
     </section>
     
     <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Business Development & Strategy</li>
-            <li>SEO, PPC, Google Ads, Social Media Marketing</li>
-            <li>Event & Project Management</li>
-            <li>Graphic & Web Design (Adobe Photoshop, Illustrator, InDesign)</li>
-            <li>Financial & Supply Chain Management</li>
-        </ul>
+      <h2>Skills</h2>
+      <ul>
+        <li>Business Development & Strategy</li>
+        <li>SEO, PPC, Google Ads, Social Media Marketing</li>
+        <li>Event & Project Management</li>
+        <li>Graphic & Web Design (Adobe Photoshop, Illustrator, InDesign)</li>
+        <li>Financial & Supply Chain Management</li>
+      </ul>
     </section>
 
     <section id="portfolio">
-        <h2>Portfolio</h2>
-        
-        <h3>Web Design</h3>
-        <ul>
-            <li><a href="#">Website 1</a></li>
-            <li><a href="#">Website 2</a></li>
-            <li><a href="#">Website 3</a></li>
-        </ul>
-        
-        <h3>Graphic Design</h3>
-        <div class="portfolio-container">
-            <img src="graphic1.jpg" alt="Graphic Design 1">
-            <img src="graphic2.jpg" alt="Graphic Design 2">
-            <img src="graphic3.jpg" alt="Graphic Design 3">
-        </div>
-        
-        <h3>Illustrations</h3>
-        <p>These illustrations were created using a graphic tablet and Clip Studio Paint, with final color corrections made in Photoshop.</p>
-        <div id="illustration-gallery" class="illustrations-container">
-            <img src="a1.jpg" alt="Illustration 1">
-            <img src="a2.jpg" alt="Illustration 2">
-            <img src="a3.jpg" alt="Illustration 3">
-            <img src="a8.jpg" alt="Illustration 4">
-            <img src="d1.jpg" alt="Illustration 5" class="hidden">
-            <img src="q1.jpg" alt="Illustration 6" class="hidden">
-            <img src="q4.jpg" alt="Illustration 7" class="hidden">
-            <img src="q5.jpg" alt="Illustration 8" class="hidden">
-            <img src="q8.jpg" alt="Illustration 9" class="hidden">
-            <img src="rtp4.jpg" alt="Illustration 10" class="hidden">
-            <img src="rpt6.jpg" alt="Illustration 11" class="hidden">
-            <img src="rtp8.jpg" alt="Illustration 12" class="hidden">
-            <img src="v2.jpg" alt="Illustration 13" class="hidden">
-            <img src="v3.jpg" alt="Illustration 14" class="hidden">
-            <img src="v4.jpg" alt="Illustration 15" class="hidden">
-            <img src="v5.jpg" alt="Illustration 16" class="hidden">
-        </div>
-        <button id="loadMore" class="load-more">Load More</button>
+      <h2>Portfolio</h2>
+      
+      <h3>Web Design</h3>
+      <ul>
+        <li><a href="#">Website 1</a></li>
+        <li><a href="#">Website 2</a></li>
+        <li><a href="#">Website 3</a></li>
+      </ul>
+      
+      <h3>Graphic Design</h3>
+      <div class="portfolio-container">
+        <img src="graphic1.jpg" alt="Graphic Design 1" loading="lazy">
+        <img src="graphic2.jpg" alt="Graphic Design 2" loading="lazy">
+        <img src="graphic3.jpg" alt="Graphic Design 3" loading="lazy">
+      </div>
+      
+      <h3>Illustrations</h3>
+      <p>These illustrations were created using a graphic tablet and Clip Studio Paint, with final color corrections made in Photoshop.</p>
+      <div id="illustration-gallery" class="illustrations-container">
+        <img src="a1.jpg" alt="Illustration 1" loading="lazy">
+        <img src="a2.jpg" alt="Illustration 2" loading="lazy">
+        <img src="a3.jpg" alt="Illustration 3" loading="lazy">
+        <img src="a8.jpg" alt="Illustration 4" loading="lazy">
+        <img src="d1.jpg" alt="Illustration 5" class="hidden" loading="lazy">
+        <img src="q1.jpg" alt="Illustration 6" class="hidden" loading="lazy">
+        <img src="q4.jpg" alt="Illustration 7" class="hidden" loading="lazy">
+        <img src="q5.jpg" alt="Illustration 8" class="hidden" loading="lazy">
+        <img src="q8.jpg" alt="Illustration 9" class="hidden" loading="lazy">
+        <img src="rtp4.jpg" alt="Illustration 10" class="hidden" loading="lazy">
+        <img src="rpt6.jpg" alt="Illustration 11" class="hidden" loading="lazy">
+        <img src="rtp8.jpg" alt="Illustration 12" class="hidden" loading="lazy">
+        <img src="v2.jpg" alt="Illustration 13" class="hidden" loading="lazy">
+        <img src="v3.jpg" alt="Illustration 14" class="hidden" loading="lazy">
+        <img src="v4.jpg" alt="Illustration 15" class="hidden" loading="lazy">
+        <img src="v5.jpg" alt="Illustration 16" class="hidden" loading="lazy">
+      </div>
+      <button id="loadMore" class="load-more" aria-label="Load more illustrations">Load More</button>
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:alwinred@gmail.com">alwinred@gmail.com</a></p>
-        <p>Location: Limassol, Cyprus</p>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:alwinred@gmail.com">alwinred@gmail.com</a></p>
+      <p>Location: Limassol, Cyprus</p>
     </section>
 
     <section id="download-cv">
-        <h2>Download My CV</h2>
-        <p><a href="Vasilis_Vavalos_Resume.pdf" download>Click here to download my CV</a></p>
+      <h2>Download My CV</h2>
+      <p><a href="Vasilis_Vavalos_Resume.pdf" download>Click here to download my CV</a></p>
     </section>
+  </main>
 
-    <script>
-        document.getElementById('loadMore').addEventListener('click', function() {
-            let hiddenImages = document.querySelectorAll('.illustrations-container .hidden');
-            for (let i = 0; i < 4 && i < hiddenImages.length; i++) {
-                hiddenImages[i].classList.remove('hidden');
-                hiddenImages[i].style.visibility = 'visible';
-                hiddenImages[i].style.opacity = '1';
-                hiddenImages[i].style.position = 'relative';
-            }
-            if (document.querySelectorAll('.illustrations-container .hidden').length === 0) {
-                this.style.display = 'none';
-            }
-        });
-    </script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Vasilis Vavalos. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('loadMore').addEventListener('click', function() {
+      let hiddenImages = document.querySelectorAll('.illustrations-container .hidden');
+      for (let i = 0; i < 4 && i < hiddenImages.length; i++) {
+        hiddenImages[i].classList.remove('hidden');
+        hiddenImages[i].style.visibility = 'visible';
+        hiddenImages[i].style.opacity = '1';
+        hiddenImages[i].style.position = 'relative';
+      }
+      if (document.querySelectorAll('.illustrations-container .hidden').length === 0) {
+        this.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
