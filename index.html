@@ -122,7 +122,7 @@
     }
 
     /* Portfolio Section */
-    /* Existing Graphic Design & Illustrations styles remain here */
+    /* Websites */
     #portfolio ul {
       display: flex;
       justify-content: center;
@@ -179,6 +179,34 @@
       transform: scale(1.08);
       box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
     }
+
+    /* New Graphic Design Container */
+    .graphic-design-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      padding: 20px 0;
+    }
+    .graphic-design-container img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    .graphic-design-container img.hidden {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+    }
+    .graphic-design-container img:hover {
+      transform: scale(1.08);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
     .load-more {
       display: block;
       margin: 20px auto;
@@ -195,7 +223,7 @@
       background: #005bb5;
     }
 
-    /* New Websites Container Styles */
+    /* Websites Container Styles (unchanged) */
     .websites-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -352,34 +380,34 @@
     <section id="portfolio">
       <h2>Portfolio</h2>
       
-      <!-- New Websites Section -->
+      <!-- Websites Section -->
       <h3>Web Design</h3>
       <div id="websites-container" class="websites-container">
         <div class="website-item">
-          <img src="thumbnail1.jpg" alt="Website 1 Screenshot" loading="lazy">
+          <img src="thumbnail1.jpg" alt="Gevorest Screenshot" loading="lazy">
           <a href="https://www.gevorest.com/" target="_blank">Gevorest</a>
-          <p>Frontend Design & Development</p>
+          <p>Frontend Design &amp; Development</p>
         </div>
         <div class="website-item">
-          <img src="thumbnail2.jpg" alt="Website 2 Screenshot" loading="lazy">
+          <img src="thumbnail2.jpg" alt="Prive Sports Screenshot" loading="lazy">
           <a href="https://www.privesports.com.cy/" target="_blank">Prive Sports</a>
-          <p>Frontend Design & Development</p>
+          <p>Frontend Design &amp; Development</p>
         </div>
         <div class="website-item">
-          <img src="thumbnail3.jpg" alt="Website 3 Screenshot" loading="lazy">
+          <img src="thumbnail3.jpg" alt="Limassol Marathon Screenshot" loading="lazy">
           <a href="https://www.limassolmarathon.com/" target="_blank">Limassol Marathon</a>
           <p>Fullstack Development</p>
         </div>
         <div class="website-item">
-          <img src="thumbnail4.jpg" alt="Website 4 Screenshot" loading="lazy">
+          <img src="thumbnail4.jpg" alt="GetYourTickets Screenshot" loading="lazy">
           <a href="https://www.getyourtickets.eu/index.php" target="_blank">GetYourTickets</a>
           <p>Backend Development</p>
         </div>
         <!-- Additional website items initially hidden -->
         <div class="website-item hidden-website">
-          <img src="thumbnail5.jpg" alt="Website 5 Screenshot" loading="lazy">
+          <img src="thumbnail5.jpg" alt="Choice FM Screenshot" loading="lazy">
           <a href="https://www.choicefm.com.cy/" target="_blank">Choice FM</a>
-          <p>Frontend Design & Development</p>
+          <p>Frontend Design &amp; Development</p>
         </div>
         <div class="website-item hidden-website">
           <img src="thumbnail6.jpg" alt="Website 6 Screenshot" loading="lazy">
@@ -387,27 +415,32 @@
           <p>Frontend Development</p>
         </div>
         <div class="website-item hidden-website">
-          <img src="thumbnail7.jpg" alt="Website 7 Screenshot" loading="lazy">
+          <img src="thumbnail7.jpg" alt="TshirtJunkies Screenshot" loading="lazy">
           <a href="https://tshirtjunkies.co/" target="_blank">TshirtJunkies</a>
           <p>Shopify Ecommerce Custom Apps</p>
         </div>
         <div class="website-item hidden-website">
-          <img src="thumbnail8.jpg" alt="Website 8 Screenshot" loading="lazy">
+          <img src="thumbnail8.jpg" alt="Designs2Print Screenshot" loading="lazy">
           <a href="https://designs2print.eu/" target="_blank">Designs2Print</a>
           <p>Shopify Ecommerce Custom Apps</p>
         </div>
-        <!-- More items can be added as needed -->
       </div>
       <button id="loadMoreWebsites" class="load-more" aria-label="Load more websites">Load More</button>
       
-      <!-- Existing Graphic Design & Illustrations Sections -->
+      <!-- Graphic Design Section with Load More & Lightbox -->
       <h3>Graphic Design</h3>
-      <div class="portfolio-container">
+      <div id="graphic-design-gallery" class="graphic-design-container">
         <img src="graphic1.jpg" alt="Graphic Design 1" loading="lazy">
         <img src="graphic2.jpg" alt="Graphic Design 2" loading="lazy">
         <img src="graphic3.jpg" alt="Graphic Design 3" loading="lazy">
+        <!-- Additional images hidden initially -->
+        <img src="graphic4.jpg" alt="Graphic Design 4" class="hidden" loading="lazy">
+        <img src="graphic5.jpg" alt="Graphic Design 5" class="hidden" loading="lazy">
+        <img src="graphic6.jpg" alt="Graphic Design 6" class="hidden" loading="lazy">
       </div>
+      <button id="loadMoreGraphic" class="load-more" aria-label="Load more graphic design images">Load More</button>
       
+      <!-- Illustrations Section (unchanged) -->
       <h3>Illustrations</h3>
       <p>These illustrations were created using a graphic tablet and Clip Studio Paint, with final color corrections made in Photoshop.</p>
       <div id="illustration-gallery" class="illustrations-container">
@@ -494,10 +527,9 @@
       <p>Email: <a href="mailto:alwinred@gmail.com">alwinred@gmail.com</a></p>
       <p>Location: Limassol, Cyprus</p>
     </section>
-
   </main>
 
-  <!-- Popup Modal for Illustrations -->
+  <!-- Popup Modal (Lightbox) -->
   <div id="popup-modal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modal-img">
@@ -523,13 +555,31 @@
       }
     });
 
-    // Modal Popup functionality for Illustrations
+    // Load More functionality for Graphic Design images
+    document.getElementById('loadMoreGraphic').addEventListener('click', function() {
+      let hiddenImages = document.querySelectorAll('.graphic-design-container .hidden');
+      for (let i = 0; i < 4 && i < hiddenImages.length; i++) {
+        hiddenImages[i].classList.remove('hidden');
+        hiddenImages[i].style.visibility = 'visible';
+        hiddenImages[i].style.opacity = '1';
+        hiddenImages[i].style.position = 'relative';
+      }
+      if (document.querySelectorAll('.graphic-design-container .hidden').length === 0) {
+        this.style.display = 'none';
+      }
+    });
+
+    // Modal Popup functionality for Illustrations and Graphic Design images
     const modal = document.getElementById("popup-modal");
     const modalImg = document.getElementById("modal-img");
     const closeBtn = document.querySelector(".close");
+    
+    // Combine images from both containers
     const illustrationImages = document.querySelectorAll(".illustrations-container img");
-
-    illustrationImages.forEach(image => {
+    const graphicDesignImages = document.querySelectorAll(".graphic-design-container img");
+    const allModalImages = [...illustrationImages, ...graphicDesignImages];
+    
+    allModalImages.forEach(image => {
       image.addEventListener("click", () => {
         modal.style.display = "block";
         modalImg.src = image.src;
