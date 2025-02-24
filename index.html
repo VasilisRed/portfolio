@@ -6,14 +6,12 @@
   <title>Vasilis Vavalos - Portfolio</title>
   <meta name="description" content="Portfolio of Vasilis Vavalos - Entrepreneur, Business Leader, and Digital Strategist showcasing skills in business development, digital marketing, and design.">
   <meta name="keywords" content="Portfolio, Vasilis Vavalos, Business, Digital Marketing, Web Design, Graphic Design, Illustrations">
-  <!-- Include Animate.css for animations -->
+  <!-- Animate.css for wow effect -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
   <style>
     /* Global Styles */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -28,13 +26,8 @@
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    a:hover {
-      color: #005bb5;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
+    a:hover { color: #005bb5; }
+    ul { list-style: none; padding: 0; }
 
     /* Navigation */
     nav {
@@ -50,9 +43,7 @@
       align-items: center;
       margin: 0;
     }
-    nav ul li {
-      margin: 0 15px;
-    }
+    nav ul li { margin: 0 15px; }
     nav ul li a {
       font-weight: 600;
       padding: 15px 0;
@@ -66,14 +57,8 @@
       padding: 80px 20px;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-    }
-    header p {
-      margin: 10px 0 0;
-      font-size: 1.2em;
-    }
+    header h1 { margin: 0; font-size: 3em; }
+    header p { margin: 10px 0 0; font-size: 1.2em; }
 
     /* Main Content */
     main {
@@ -86,7 +71,7 @@
       margin-bottom: 40px;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.05);
     }
     section h2 {
       text-align: center;
@@ -95,9 +80,7 @@
       font-size: 2em;
       font-weight: 700;
     }
-    section p {
-      text-align: center;
-    }
+    section p { text-align: center; }
     section h3 {
       margin-top: 20px;
       color: #005bb5;
@@ -118,23 +101,12 @@
     }
 
     /* Skills List */
-    #skills ul li {
-      font-size: 1.1em;
-      padding: 8px 0;
-    }
+    #skills ul li { font-size: 1.1em; padding: 8px 0; }
 
     /* Portfolio Section */
     /* Websites */
-    #portfolio ul {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 0;
-    }
-    #portfolio ul li {
-      font-size: 1.1em;
-    }
+    #portfolio ul { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 0; }
+    #portfolio ul li { font-size: 1.1em; }
     .portfolio-container {
       display: flex;
       justify-content: center;
@@ -152,7 +124,7 @@
     }
     .portfolio-container img:hover {
       transform: scale(1.05);
-      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
     }
 
     /* Illustrations Gallery */
@@ -169,7 +141,7 @@
       height: auto;
       border-radius: 10px;
       transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
       cursor: pointer;
     }
     .illustrations-container img.hidden {
@@ -179,7 +151,7 @@
     }
     .illustrations-container img:hover {
       transform: scale(1.08);
-      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
     }
 
     /* Graphic Design Container with Title & Description */
@@ -199,13 +171,13 @@
       max-width: 220px;
       height: auto;
       border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .graphic-item:hover img {
       transform: scale(1.08);
-      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
     }
     .graphic-item h4 {
       margin: 10px 0 5px;
@@ -217,25 +189,7 @@
       font-size: 0.9em;
       color: #555;
     }
-    .graphic-item.hidden {
-      display: none;
-    }
-
-    .load-more {
-      display: block;
-      margin: 20px auto;
-      padding: 12px 25px;
-      background: #0073e6;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 18px;
-      transition: background 0.3s;
-    }
-    .load-more:hover {
-      background: #005bb5;
-    }
+    .graphic-item.hidden { display: none; }
 
     /* Websites Container Styles */
     .websites-container {
@@ -273,17 +227,74 @@
     }
     .website-item:hover {
       transform: scale(1.05);
-      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
     }
-    .hidden-website {
-      display: none;
+    .hidden-website { display: none; }
+
+    /* Timeline Slider Styles */
+    .timeline-wrapper {
+      position: relative;
+      margin: 40px 0;
     }
+    .timeline-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 20px;
+      padding: 20px;
+    }
+    .timeline-event {
+      flex: 0 0 300px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: start;
+    }
+    .timeline-event h3 {
+      margin: 0;
+      font-size: 1.2em;
+      color: #005bb5;
+    }
+    .timeline-event h4 {
+      margin: 5px 0;
+      font-size: 1em;
+      color: #0073e6;
+    }
+    .timeline-event span {
+      font-size: 0.9em;
+      color: #555;
+    }
+    .timeline-event ul {
+      margin-top: 10px;
+      text-align: left;
+    }
+    .timeline-event ul li {
+      font-size: 0.9em;
+      margin: 5px 0;
+    }
+    .timeline-prev, .timeline-next {
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 2em;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 150;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .timeline-prev:hover, .timeline-next:hover { opacity: 1; }
+    .timeline-prev { left: 10px; }
+    .timeline-next { right: 10px; }
 
     /* Contact & CV Download */
-    #contact a, #download-cv a {
-      font-size: 1.1em;
-      font-weight: 600;
-    }
+    #contact a { font-size: 1.1em; font-weight: 600; }
 
     /* Footer */
     footer {
@@ -326,26 +337,14 @@
       cursor: pointer;
       transition: color 0.3s;
     }
-    .close:hover,
-    .close:focus {
-      color: #bbb;
-    }
+    .close:hover, .close:focus { color: #bbb; }
 
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5em;
-      }
-      nav ul li {
-        margin: 0 10px;
-      }
-      .portfolio-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .websites-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
+      header h1 { font-size: 2.5em; }
+      nav ul li { margin: 0 10px; }
+      .portfolio-container { flex-direction: column; align-items: center; }
+      .websites-container { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
     }
   </style>
 </head>
@@ -356,7 +355,7 @@
       <li><a href="#about">About Me</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#work">Work Experience</a></li>
+      <li><a href="#timeline">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -440,7 +439,7 @@
       </div>
       <button id="loadMoreWebsites" class="load-more" aria-label="Load more websites">Load More</button>
       
-      <!-- Graphic Design Section with Title, Description, Load More & Lightbox -->
+      <!-- Graphic Design Section -->
       <h3>Graphic Design</h3>
       <div id="graphic-design-gallery" class="graphic-design-container">
         <div class="graphic-item">
@@ -477,7 +476,7 @@
       </div>
       <button id="loadMoreGraphic" class="load-more" aria-label="Load more graphic design images">Load More</button>
       
-      <!-- Illustrations Section (unchanged) -->
+      <!-- Illustrations Section -->
       <h3>Illustrations</h3>
       <p>These illustrations were created using a graphic tablet and Clip Studio Paint, with final color corrections made in Photoshop.</p>
       <div id="illustration-gallery" class="illustrations-container">
@@ -501,35 +500,40 @@
       <button id="loadMore" class="load-more" aria-label="Load more illustrations">Load More</button>
     </section>
 
-    <!-- Work Experience Section -->
-    <section id="work" class="wow">
-      <h2>Work Experience</h2>
-      <div class="section-content">
-        <p><strong>Founder &amp; Business Owner</strong> – TshirtJunkies.co, Limassol, Cyprus<br>
-          <em>Feb 2019 – Present</em></p>
-        <ul>
-          <li>Established and managed a custom t-shirt business with both retail and e-commerce platforms.</li>
-          <li>Developed strategic partnerships and innovative market solutions to drive significant business growth.</li>
-          <li>Oversaw product development, digital marketing initiatives (including SEO, social media, and paid advertising), supply chain management, and financial oversight.</li>
-          <li>Implemented operational processes that enhanced productivity and resource allocation, resulting in substantial online sales increases.</li>
-        </ul>
-        <p><strong>Managing Director</strong> – ASG Group Of Companies, Cyprus<br>
-          <em>Sep 2007 – Jan 2019</em></p>
-        <ul>
-          <li>Increased sales of ancillary services by 400% through targeted training and strategic customer engagement.</li>
-          <li>Scaled the Limassol Marathon from 70 to over 15,000 participants, establishing it as Cyprus’ largest sports event.</li>
-          <li>Led digital transformation initiatives, including the development and launch of websites, social media campaigns, and custom software solutions to boost operational efficiency and brand visibility.</li>
-          <li>Managed a diverse team of 300+ employees across multiple departments and locations, enhancing overall customer satisfaction and retention.</li>
-          <li>Received specialized training as a frontline coach, focusing on sales performance and customer service excellence.</li>
-        </ul>
-        <p><strong>Junior Graphic &amp; Web Designer</strong> – GreenGraphics A.E., Athens, Greece<br>
-          <em>Feb 2007 – Aug 2009</em></p>
-        <ul>
-          <li>Designed interactive user interfaces in compliance with modern web standards, resulting in enhanced user engagement.</li>
-          <li>Optimized website performance through regular assessments, including improvements in page load times and image optimization.</li>
-          <li>Increased online engagement by integrating interactive multimedia elements and compelling call-to-action features.</li>
-          <li>Managed domain registrations and maintained web hosting accounts, ensuring seamless client experiences.</li>
-        </ul>
+    <!-- Experience Timeline Slider -->
+    <section id="timeline" class="wow">
+      <h2>Experience</h2>
+      <div class="timeline-wrapper">
+        <button class="timeline-prev">&#10094;</button>
+        <div class="timeline-container">
+          <div class="timeline-event">
+            <h3>Founder &amp; Business Owner</h3>
+            <h4>TshirtJunkies.co, Limassol, Cyprus</h4>
+            <span>Feb 2019 – Present</span>
+            <ul>
+              <li>Established and managed a custom t-shirt business with both retail and e-commerce platforms.</li>
+              <li>Developed strategic partnerships and innovative market solutions.</li>
+            </ul>
+          </div>
+          <div class="timeline-event">
+            <h3>Managing Director</h3>
+            <h4>ASG Group Of Companies, Cyprus</h4>
+            <span>Sep 2007 – Jan 2019</span>
+            <ul>
+              <li>Increased sales by 400% through targeted training and strategic customer engagement.</li>
+              <li>Scaled the Limassol Marathon from 70 to over 15,000 participants.</li>
+            </ul>
+          </div>
+          <div class="timeline-event">
+            <h3>Junior Graphic &amp; Web Designer</h3>
+            <h4>GreenGraphics A.E., Athens, Greece</h4>
+            <span>Feb 2007 – Aug 2009</span>
+            <ul>
+              <li>Designed interactive user interfaces and optimized website performance.</li>
+            </ul>
+          </div>
+        </div>
+        <button class="timeline-next">&#10095;</button>
       </div>
     </section>
 
@@ -644,6 +648,18 @@
       }
     });
 
+    // Timeline Slider Functionality
+    const timelineContainer = document.querySelector('.timeline-container');
+    const prevButton = document.querySelector('.timeline-prev');
+    const nextButton = document.querySelector('.timeline-next');
+
+    prevButton.addEventListener('click', () => {
+      timelineContainer.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+    nextButton.addEventListener('click', () => {
+      timelineContainer.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+
     // Intersection Observer for "wow" effect using Animate.css
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -653,7 +669,6 @@
         }
       });
     });
-
     document.querySelectorAll('.wow').forEach((element) => {
       observer.observe(element);
     });
