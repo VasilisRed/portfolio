@@ -6,8 +6,6 @@
   <title>Vasilis Vavalos - Portfolio</title>
   <meta name="description" content="Portfolio of Vasilis Vavalos - Entrepreneur, Business Leader, and Digital Strategist showcasing skills in business development, digital marketing, and design.">
   <meta name="keywords" content="Portfolio, Vasilis Vavalos, Business, Digital Marketing, Web Design, Graphic Design, Illustrations">
-  <!-- Include Animate.css for animations -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
   <style>
     /* Global Styles */
@@ -43,6 +41,14 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    /* Hamburger Icon (hidden by default) */
+    .hamburger {
+      display: none;
     }
     nav ul {
       display: flex;
@@ -152,7 +158,7 @@
     }
     .portfolio-container img:hover {
       transform: scale(1.05);
-      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
     }
 
     /* Illustrations Gallery */
@@ -280,7 +286,7 @@
     }
 
     /* Contact & CV Download */
-    #contact a, #download-cv a {
+    #contact a {
       font-size: 1.1em;
       font-weight: 600;
     }
@@ -336,12 +342,25 @@
       header h1 {
         font-size: 2.5em;
       }
-      nav ul li {
-        margin: 0 10px;
-      }
-      .portfolio-container {
+      nav ul {
+        display: none;
         flex-direction: column;
-        align-items: center;
+        width: 100%;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      /* Show Hamburger */
+      .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 2em;
+        padding: 15px;
+        color: #0073e6;
       }
       .websites-container {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -352,6 +371,7 @@
 <body>
   <!-- Navigation -->
   <nav>
+    <div class="hamburger" id="hamburger">&#9776;</div>
     <ul>
       <li><a href="#about">About Me</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -440,7 +460,7 @@
       </div>
       <button id="loadMoreWebsites" class="load-more" aria-label="Load more websites">Load More</button>
       
-      <!-- Graphic Design Section with Title, Description, Load More & Lightbox -->
+      <!-- Graphic Design Section -->
       <h3>Graphic Design</h3>
       <div id="graphic-design-gallery" class="graphic-design-container">
         <div class="graphic-item">
@@ -477,7 +497,7 @@
       </div>
       <button id="loadMoreGraphic" class="load-more" aria-label="Load more graphic design images">Load More</button>
       
-      <!-- Illustrations Section (unchanged) -->
+      <!-- Illustrations Section -->
       <h3>Illustrations</h3>
       <p>These illustrations were created using a graphic tablet and Clip Studio Paint, with final color corrections made in Photoshop.</p>
       <div id="illustration-gallery" class="illustrations-container">
@@ -578,6 +598,12 @@
   </footer>
 
   <script>
+    // Hamburger Menu Toggle for Mobile
+    document.getElementById("hamburger").addEventListener("click", function() {
+      const navUl = document.querySelector("nav ul");
+      navUl.classList.toggle("active");
+    });
+
     // Load More functionality for Illustrations
     document.getElementById('loadMore').addEventListener('click', function() {
       let hiddenImages = document.querySelectorAll('.illustrations-container .hidden');
@@ -653,7 +679,6 @@
         }
       });
     });
-
     document.querySelectorAll('.wow').forEach((element) => {
       observer.observe(element);
     });
