@@ -6,6 +6,8 @@
   <title>Vasilis Vavalos - Portfolio</title>
   <meta name="description" content="Portfolio of Vasilis Vavalos - Entrepreneur, Business Leader, and Digital Strategist showcasing skills in business development, digital marketing, and design.">
   <meta name="keywords" content="Portfolio, Vasilis Vavalos, Business, Digital Marketing, Web Design, Graphic Design, Illustrations">
+  <!-- Include Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
   <style>
     /* Global Styles */
@@ -361,7 +363,7 @@
   </nav>
 
   <!-- Header -->
-  <header>
+  <header class="wow">
     <h1>Vasilis Vavalos</h1>
     <p>Entrepreneur | Business Leader | Digital Strategist</p>
     <p><a href="Vasilis_Vavalos_Resume.pdf" download>Click here to download my CV</a></p>
@@ -369,7 +371,7 @@
 
   <!-- Main Content -->
   <main>
-    <section id="about">
+    <section id="about" class="wow">
       <h2>About Me</h2>
       <p>Self-motivated business leader with a proven track record in driving expansion and innovation.
       I spearheaded TshirtJunkies.co, achieving significant online sales growth through innovative SEO and digital marketing strategies.
@@ -377,7 +379,7 @@
       Proficient in Adobe Suite and e-commerce platforms, I thrive on turning visionary ideas into tangible successes.</p>
     </section>
     
-    <section id="skills">
+    <section id="skills" class="wow">
       <h2>Skills</h2>
       <ul>
         <li><strong>Business &amp; Leadership:</strong> Business Development, Operations Management, Strategic Planning, Revenue Growth, Team Leadership</li>
@@ -388,7 +390,7 @@
       </ul>
     </section>
 
-    <section id="portfolio">
+    <section id="portfolio" class="wow">
       <h2>Portfolio</h2>
       
       <!-- Websites Section -->
@@ -444,17 +446,17 @@
         <div class="graphic-item">
           <img src="expodesign1.jpg" alt="Graphic Design 1" loading="lazy">
           <h4>ParagonJuice</h4>
-          <p>EXPO Booth & Merch Design</p>
+          <p>EXPO Booth &amp; Merch Design</p>
         </div>
         <div class="graphic-item">
           <img src="expodesign2.jpg" alt="Graphic Design 2" loading="lazy">
           <h4>ParagonJuice</h4>
-          <p>EXPO Booth & Merch Design</p>
+          <p>EXPO Booth &amp; Merch Design</p>
         </div>
         <div class="graphic-item">
           <img src="expodesign3.jpg" alt="Graphic Design 3" loading="lazy">
           <h4>ParagonJuice</h4>
-          <p>EXPO Booth & Merch Design</p>
+          <p>EXPO Booth &amp; Merch Design</p>
         </div>
         <!-- Additional graphic design items hidden initially -->
         <div class="graphic-item hidden">
@@ -500,7 +502,7 @@
     </section>
 
     <!-- Work Experience Section -->
-    <section id="work">
+    <section id="work" class="wow">
       <h2>Work Experience</h2>
       <div class="section-content">
         <p><strong>Founder &amp; Business Owner</strong> – TshirtJunkies.co, Limassol, Cyprus<br>
@@ -532,7 +534,7 @@
     </section>
 
     <!-- Education, Languages & Certifications Section -->
-    <section id="education">
+    <section id="education" class="wow">
       <h3>Education</h3>
       <p><strong>Master of Science in Digital Communications and Media</strong><br>
         Metropolitan College, Athens, Greece – May 2007</p>
@@ -557,7 +559,7 @@
       </ul>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="wow">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:alwinred@gmail.com">alwinred@gmail.com</a></p>
       <p>Location: Limassol, Cyprus</p>
@@ -571,7 +573,7 @@
   </div>
 
   <!-- Footer -->
-  <footer>
+  <footer class="wow">
     <p>&copy; 2025 Vasilis Vavalos. All rights reserved.</p>
   </footer>
 
@@ -640,6 +642,20 @@
       if(document.querySelectorAll('.websites-container .hidden-website').length === 0) {
         this.style.display = 'none';
       }
+    });
+
+    // Intersection Observer for "wow" effect using Animate.css
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll('.wow').forEach((element) => {
+      observer.observe(element);
     });
   </script>
 </body>
