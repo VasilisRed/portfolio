@@ -43,7 +43,7 @@
       z-index: 100;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* default for mobile */
+      justify-content: center; /* centered for full screens */
       padding: 0 20px;
     }
     /* Hamburger Icon */
@@ -346,17 +346,27 @@
       header h1 {
         font-size: 2.5em;
       }
+      /* For mobile, hide the nav ul and display as a side drawer */
       nav ul {
-        display: none;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background: #fff;
         flex-direction: column;
-        width: 100%;
+        padding-top: 60px;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0px 5px rgba(0,0,0,0.2);
+        z-index: 200;
       }
       nav ul.active {
-        display: flex;
+        left: 0;
       }
       nav ul li {
-        margin: 10px 0;
-        text-align: center;
+        margin: 20px 0;
+        text-align: left;
+        padding-left: 20px;
       }
       .hamburger {
         display: block;
@@ -366,8 +376,16 @@
       }
     }
     
-    /* Override nav layout for full screen (above 768px) to center menu */
+    /* For screens larger than 768px, center the menu */
     @media (min-width: 769px) {
+      nav ul {
+        position: static;
+        flex-direction: row;
+        box-shadow: none;
+      }
+      .hamburger {
+        display: none;
+      }
       nav {
         justify-content: center;
       }
@@ -602,7 +620,7 @@
   </footer>
 
   <script>
-    // Hamburger Menu Toggle for Mobile
+    // Hamburger Menu Toggle for Mobile with Side Drawer
     document.getElementById("hamburger").addEventListener("click", function() {
       const navUl = document.querySelector("nav ul");
       navUl.classList.toggle("active");
