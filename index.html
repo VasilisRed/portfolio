@@ -122,6 +122,7 @@
     }
 
     /* Portfolio Section */
+    /* Existing Graphic Design & Illustrations styles remain here */
     #portfolio ul {
       display: flex;
       justify-content: center;
@@ -194,6 +195,43 @@
       background: #005bb5;
     }
 
+    /* New Websites Container Styles */
+    .websites-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      justify-items: center;
+      padding: 20px 0;
+    }
+    .website-item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .website-item a {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #0073e6;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .website-item p {
+      font-size: 0.95em;
+      color: #555;
+      margin: 0;
+    }
+    .website-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    /* Hidden website items */
+    .hidden-website {
+      display: none;
+    }
+
     /* Contact & CV Download */
     #contact a, #download-cv a {
       font-size: 1.1em;
@@ -258,6 +296,9 @@
         flex-direction: column;
         align-items: center;
       }
+      .websites-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
     }
   </style>
 </head>
@@ -305,13 +346,47 @@
     <section id="portfolio">
       <h2>Portfolio</h2>
       
+      <!-- New Websites Section -->
       <h3>Web Design</h3>
-      <ul>
-        <li><a href="#">Website 1</a></li>
-        <li><a href="#">Website 2</a></li>
-        <li><a href="#">Website 3</a></li>
-      </ul>
+      <div id="websites-container" class="websites-container">
+        <div class="website-item">
+          <a href="http://example.com/website1" target="_blank">Website 1</a>
+          <p>Frontend Development</p>
+        </div>
+        <div class="website-item">
+          <a href="http://example.com/website2" target="_blank">Website 2</a>
+          <p>Custom CMS</p>
+        </div>
+        <div class="website-item">
+          <a href="http://example.com/website3" target="_blank">Website 3</a>
+          <p>Responsive Design</p>
+        </div>
+        <div class="website-item">
+          <a href="http://example.com/website4" target="_blank">Website 4</a>
+          <p>E-commerce Platform</p>
+        </div>
+        <!-- Additional website items initially hidden -->
+        <div class="website-item hidden-website">
+          <a href="http://example.com/website5" target="_blank">Website 5</a>
+          <p>Custom CMS</p>
+        </div>
+        <div class="website-item hidden-website">
+          <a href="http://example.com/website6" target="_blank">Website 6</a>
+          <p>Frontend Development</p>
+        </div>
+        <div class="website-item hidden-website">
+          <a href="http://example.com/website7" target="_blank">Website 7</a>
+          <p>UI/UX Design</p>
+        </div>
+        <div class="website-item hidden-website">
+          <a href="http://example.com/website8" target="_blank">Website 8</a>
+          <p>Custom CMS</p>
+        </div>
+        <!-- More items can be added as needed -->
+      </div>
+      <button id="loadMoreWebsites" class="load-more" aria-label="Load more websites">Load More</button>
       
+      <!-- Existing Graphic Design & Illustrations Sections -->
       <h3>Graphic Design</h3>
       <div class="portfolio-container">
         <img src="graphic1.jpg" alt="Graphic Design 1" loading="lazy">
@@ -412,7 +487,7 @@
     </section>
   </main>
 
-  <!-- Popup Modal -->
+  <!-- Popup Modal for Illustrations -->
   <div id="popup-modal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modal-img">
@@ -424,7 +499,7 @@
   </footer>
 
   <script>
-    // Load More functionality for illustrations
+    // Load More functionality for Illustrations
     document.getElementById('loadMore').addEventListener('click', function() {
       let hiddenImages = document.querySelectorAll('.illustrations-container .hidden');
       for (let i = 0; i < 4 && i < hiddenImages.length; i++) {
@@ -438,7 +513,7 @@
       }
     });
 
-    // Modal Popup functionality for illustrations
+    // Modal Popup functionality for Illustrations
     const modal = document.getElementById("popup-modal");
     const modalImg = document.getElementById("modal-img");
     const closeBtn = document.querySelector(".close");
@@ -458,6 +533,17 @@
     modal.addEventListener("click", (event) => {
       if (event.target === modal) {
         modal.style.display = "none";
+      }
+    });
+
+    // Load More functionality for Website Portfolio Items
+    document.getElementById('loadMoreWebsites').addEventListener('click', function() {
+      let hiddenItems = document.querySelectorAll('.websites-container .hidden-website');
+      for (let i = 0; i < 4 && i < hiddenItems.length; i++) {
+        hiddenItems[i].classList.remove('hidden-website');
+      }
+      if(document.querySelectorAll('.websites-container .hidden-website').length === 0) {
+        this.style.display = 'none';
       }
     });
   </script>
