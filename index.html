@@ -39,22 +39,6 @@
       justify-content: center; /* centered for full screens */
       padding: 0 20px;
     }
-    /* Hamburger Icon (visible on mobile) */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      font-size: 2em;
-      padding: 15px;
-      color: #0073e6;
-    }
-    /* Close Drawer Icon (visible on mobile when menu is open) */
-    .close-drawer {
-      display: none;
-      cursor: pointer;
-      font-size: 2em;
-      padding: 15px;
-      color: #0073e6;
-    }
     nav ul {
       display: flex;
       justify-content: center;
@@ -303,48 +287,32 @@
       cursor: pointer;
       transition: color 0.3s;
     }
-    .close:hover, .close:focus { color: #bbb; }
+    .close:hover,
+    .close:focus { color: #bbb; }
 
-    /* Mobile Responsive - Side Drawer Menu */
+    /* CTA Button for Mobile */
+    .cta-button {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #0073e6;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.2em;
+      text-decoration: none;
+      z-index: 300;
+    }
+
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
       header h1 { font-size: 2.5em; }
-      /* Nav adjustments for side drawer */
-      nav {
-        justify-content: flex-start;
-      }
-      nav ul {
-        position: fixed;
-        top: 0;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        background: #fff;
-        flex-direction: column;
-        padding-top: 20px;
-        transition: left 0.3s ease;
-        box-shadow: 2px 0px 5px rgba(0,0,0,0.2);
-        z-index: 200;
-        text-align: left;
-      }
-      nav ul.active { left: 0; }
-      nav ul li {
-        margin: 10px 0;
-        padding-left: 20px;
-      }
-      /* Display hamburger on left */
-      .hamburger { display: block; }
-      /* Close drawer icon, positioned inside drawer */
-      .close-drawer {
-        display: block;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 2em;
-        cursor: pointer;
-        color: #0073e6;
-      }
-      /* In mobile view, hide the centered menu */
-      nav { padding: 0 10px; }
+      /* Hide navigation menu on mobile */
+      nav { display: none; }
+      /* Display the CTA button on mobile */
+      .cta-button { display: block; }
       .websites-container {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       }
@@ -354,16 +322,17 @@
     @media (min-width: 769px) {
       nav ul { position: static; flex-direction: row; box-shadow: none; }
       .hamburger, .close-drawer { display: none; }
-      nav { justify-content: center; }
+      nav { display: flex; justify-content: center; }
+      .cta-button { display: none; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- Navigation (Desktop only) -->
   <nav>
     <div class="hamburger" id="hamburger">&#9776;</div>
-    <div class="close-drawer" id="close-drawer">&#10006;</div>
-    <ul>
+    <ul id="nav-menu">
+      <li class="close-drawer" id="close-drawer">&#10006;</li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
@@ -372,6 +341,9 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+
+  <!-- CTA Button for Mobile -->
+  <a class="cta-button" href="tel:+35799897089">CONTACT ME</a>
 
   <!-- Header -->
   <header class="wow">
@@ -587,21 +559,8 @@
   </footer>
 
   <script>
-    // Hamburger Menu Toggle for Mobile with Side Drawer
-    const hamburger = document.getElementById("hamburger");
-    const closeDrawer = document.getElementById("close-drawer");
-    const navUl = document.querySelector("nav ul");
-
-    hamburger.addEventListener("click", function() {
-      navUl.classList.add("active");
-      hamburger.style.display = "none";
-      closeDrawer.style.display = "block";
-    });
-    closeDrawer.addEventListener("click", function() {
-      navUl.classList.remove("active");
-      hamburger.style.display = "block";
-      closeDrawer.style.display = "none";
-    });
+    // Hamburger Menu Toggle for Mobile with Side Drawer (not used since nav is hidden on mobile)
+    // In this version, on mobile we simply hide the menu
 
     // Load More functionality for Illustrations
     document.getElementById('loadMore').addEventListener('click', function() {
@@ -635,12 +594,12 @@
     const modal = document.getElementById("popup-modal");
     const modalImg = document.getElementById("modal-img");
     const closeBtn = document.querySelector(".close");
-
+    
     // Combine images from both containers
     const illustrationImages = document.querySelectorAll(".illustrations-container img");
     const graphicDesignImages = document.querySelectorAll(".graphic-design-container img");
     const allModalImages = [...illustrationImages, ...graphicDesignImages];
-
+    
     allModalImages.forEach(image => {
       image.addEventListener("click", () => {
         modal.style.display = "block";
