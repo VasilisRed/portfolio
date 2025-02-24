@@ -247,6 +247,39 @@
     }
     .hidden-website { display: none; }
 
+     /* New Section: Previous Works */
+     #previous-works {
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+    }
+    #previous-works h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0073e6;
+      font-size: 2em;
+      font-weight: 700;
+    }
+    .previous-works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px 0;
+    }
+    .previous-works-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .previous-works-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+    }
+
     /* Contact & CV Download */
     #contact a { font-size: 1.1em; font-weight: 600; }
 
@@ -635,6 +668,23 @@
         <li>Google Analytics Individual Qualification (IQ) – Google, Oct 2016</li>
       </ul>
     </section>
+
+        <!-- New Section: Previous Works -->
+        <section id="previous-works" class="wow">
+            <h2>Previous Works</h2>
+            <p>A visual showcase of my previous projects.</p>
+            <div class="previous-works-grid">
+              <img src="m1.jpg" alt="Work 1" loading="lazy">
+              <img src="m3.jpg" alt="Work 2" loading="lazy">
+              <img src="m4.jpg" alt="Work 3" loading="lazy">
+              <img src="m5.jpg" alt="Work 4" loading="lazy">
+              <img src="m6.jpg" alt="Work 5" loading="lazy">
+              <img src="m7.jpg" alt="Work 6" loading="lazy">
+              <img src="m8.jpg" alt="Work 7" loading="lazy">
+              <img src="m9.jpg" alt="Work 8" loading="lazy">
+              <img src="m10.jpg" alt="Work 9" loading="lazy">
+            </div>
+          </section>
 
     <section id="contact" class="wow">
       <h2>Contact</h2>
