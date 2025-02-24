@@ -180,7 +180,7 @@
       box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
     }
 
-    /* New Graphic Design Container */
+    /* Graphic Design Container with Title & Description */
     .graphic-design-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -188,23 +188,35 @@
       justify-items: center;
       padding: 20px 0;
     }
-    .graphic-design-container img {
+    .graphic-item {
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .graphic-item img {
       width: 100%;
       max-width: 220px;
       height: auto;
       border-radius: 10px;
-      transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .graphic-design-container img.hidden {
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-    }
-    .graphic-design-container img:hover {
+    .graphic-item:hover img {
       transform: scale(1.08);
       box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .graphic-item h4 {
+      margin: 10px 0 5px;
+      font-size: 1.1em;
+      color: #005bb5;
+    }
+    .graphic-item p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .graphic-item.hidden {
+      display: none;
     }
 
     .load-more {
@@ -223,7 +235,7 @@
       background: #005bb5;
     }
 
-    /* Websites Container Styles (unchanged) */
+    /* Websites Container Styles */
     .websites-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -261,7 +273,6 @@
       transform: scale(1.05);
       box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
     }
-    /* Hidden website items */
     .hidden-website {
       display: none;
     }
@@ -410,7 +421,7 @@
           <p>Frontend Design &amp; Development</p>
         </div>
         <div class="website-item hidden-website">
-          <img src="website8.png" alt="Website 6 Screenshot" loading="lazy">
+          <img src="website8.png" alt="ParagonJuice Screenshot" loading="lazy">
           <a href="#" target="_blank">ParagonJuice</a>
           <p>Ecommerce Fullstack Development</p>
         </div>
@@ -427,16 +438,40 @@
       </div>
       <button id="loadMoreWebsites" class="load-more" aria-label="Load more websites">Load More</button>
       
-      <!-- Graphic Design Section with Load More & Lightbox -->
+      <!-- Graphic Design Section with Title, Description, Load More & Lightbox -->
       <h3>Graphic Design</h3>
       <div id="graphic-design-gallery" class="graphic-design-container">
-        <img src="graphic1.jpg" alt="Graphic Design 1" loading="lazy">
-        <img src="graphic2.jpg" alt="Graphic Design 2" loading="lazy">
-        <img src="graphic3.jpg" alt="Graphic Design 3" loading="lazy">
-        <!-- Additional images hidden initially -->
-        <img src="graphic4.jpg" alt="Graphic Design 4" class="hidden" loading="lazy">
-        <img src="graphic5.jpg" alt="Graphic Design 5" class="hidden" loading="lazy">
-        <img src="graphic6.jpg" alt="Graphic Design 6" class="hidden" loading="lazy">
+        <div class="graphic-item">
+          <img src="graphic1.jpg" alt="Graphic Design 1" loading="lazy">
+          <h4>Brand Identity</h4>
+          <p>Modern and minimal brand design.</p>
+        </div>
+        <div class="graphic-item">
+          <img src="graphic2.jpg" alt="Graphic Design 2" loading="lazy">
+          <h4>Poster Design</h4>
+          <p>Vibrant poster for a music festival.</p>
+        </div>
+        <div class="graphic-item">
+          <img src="graphic3.jpg" alt="Graphic Design 3" loading="lazy">
+          <h4>Packaging</h4>
+          <p>Creative packaging for retail product.</p>
+        </div>
+        <!-- Additional graphic design items hidden initially -->
+        <div class="graphic-item hidden">
+          <img src="graphic4.jpg" alt="Graphic Design 4" loading="lazy">
+          <h4>Illustrated Logo</h4>
+          <p>Custom logo with hand-drawn elements.</p>
+        </div>
+        <div class="graphic-item hidden">
+          <img src="graphic5.jpg" alt="Graphic Design 5" loading="lazy">
+          <h4>Infographic</h4>
+          <p>Informative infographic design.</p>
+        </div>
+        <div class="graphic-item hidden">
+          <img src="graphic6.jpg" alt="Graphic Design 6" loading="lazy">
+          <h4>Social Media Post</h4>
+          <p>Engaging social media visuals.</p>
+        </div>
       </div>
       <button id="loadMoreGraphic" class="load-more" aria-label="Load more graphic design images">Load More</button>
       
@@ -557,12 +592,12 @@
 
     // Load More functionality for Graphic Design images
     document.getElementById('loadMoreGraphic').addEventListener('click', function() {
-      let hiddenImages = document.querySelectorAll('.graphic-design-container .hidden');
-      for (let i = 0; i < 4 && i < hiddenImages.length; i++) {
-        hiddenImages[i].classList.remove('hidden');
-        hiddenImages[i].style.visibility = 'visible';
-        hiddenImages[i].style.opacity = '1';
-        hiddenImages[i].style.position = 'relative';
+      let hiddenItems = document.querySelectorAll('.graphic-design-container .hidden');
+      for (let i = 0; i < 4 && i < hiddenItems.length; i++) {
+        hiddenItems[i].classList.remove('hidden');
+        hiddenItems[i].style.visibility = 'visible';
+        hiddenItems[i].style.opacity = '1';
+        hiddenItems[i].style.position = 'relative';
       }
       if (document.querySelectorAll('.graphic-design-container .hidden').length === 0) {
         this.style.display = 'none';
